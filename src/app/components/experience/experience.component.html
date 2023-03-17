@@ -3,19 +3,46 @@
         <h1>Experiencia laboral</h1>
     </div>
     <div id="experience-container">
-        <div class="row" id="experience">
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-dark" routerLink="/new-experience" *ngIf="isLogged">
+                Nueva experiencia laboral
+            </button>
+        </div>
+        <!--
+        <table class="table">
+            <tbody>
+                <tr *ngFor="let exp of experience">
+                    <td>{{exp.name}}</td>
+                    <td>{{exp.description}}</td>
+                    <td>edit</td>
+                    <td>delete</td>
+                </tr>
+            </tbody>
+        </table>
+        -->
+       
+        <div class="row py-5" id="experience" *ngFor="let exp of experience">
             <div class="col-md-2" id="img-experience">
                 <img src="../../../assets/default-img.jpg" alt="experience-photo" class="img-fluid">
             </div>
-            <div class="col-md-10" id="description-experience">
-                <h2>Titulo experiencia</h2>
+            <div class="col-md-8" id="description-experience">
+                <h2>{{exp.name}}</h2>
                 <h5>Fecha desde - Fecha hasta </h5>
                 <p>
-                    Lorem ipsum, dolor sit amet consectetur adipisicing elit. Aperiam, architecto aspernatur 
-                    accusamus itaque, eum laudantium labore minima asperiores consequatur, magni soluta ea! 
-                    Laborum corrupti molestiae officiis placeat enim quo vitae?
+                    {{exp.description}}
                 </p>
             </div>
+            <div class="col-md-1" *ngIf="isLogged">
+                <button class="btn btn-warning" routerLink="/edit-experience/{{exp.id}}" style="border-radius: 50%;">
+                    <i class="bi bi-pencil"></i>
+                </button>
+            </div>
+            <div class="col-md-1" *ngIf="isLogged">
+                <button class="btn btn-danger" (click)="delete(exp.id)" style="border-radius: 50%;">
+                    <i class="bi bi-trash"></i>
+                </button>
+            </div>
         </div>
+        
     </div>
 </div>
