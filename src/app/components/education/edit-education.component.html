@@ -1,1 +1,18 @@
-<p>edit-education works!</p>
+<div class="container" *ngIf="education">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onUpdate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="title">Nombre del titulo</label>
+                    <input type="text" class="form-control" id="title" name="title" [(ngModel)]="education.title" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="education.description" required>
+                </div>
+                <button class="btn btn-primary">Actualizar educación</button>
+            </form>
+        </div>
+    </div>
+</div>
+
