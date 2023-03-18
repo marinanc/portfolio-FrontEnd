@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Education } from 'src/app/model/education';
 import { EducationService } from 'src/app/service/education.service';
 import { TokenService } from 'src/app/service/token.service';
 

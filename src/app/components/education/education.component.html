@@ -4,18 +4,33 @@
     </div>
 
     <div id="education-container">
-        <div class="row" id="education">
+
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-dark" routerLink="/new-education" *ngIf="isLogged">
+                Agregar educación
+            </button>
+        </div>
+
+        <div class="row py-5" id="education" *ngFor="let edu of education">
             <div class="col-md-2">
                 <img src="../../../assets/default-img.jpg" alt="logo educational establishment" class="img-fluid">
             </div>
-            <div class="col-md-10">
-                <h2>Titulo educación</h2>
+            <div class="col-md-8">
+                <h2>{{edu.title}}</h2>
                 <h5>Fecha desde - Fecha hasta</h5>
                 <p>
-                    Lorem ipsum dolor sit amet consectetur, adipisicing elit. Placeat et ab atque accusamus 
-                    incidunt porro, quisquam quas impedit, consequatur sunt cum. Praesentium deserunt 
-                    voluptates itaque impedit vitae fugiat nisi suscipit.
+                    {{edu.description}}
                 </p>
+            </div>
+            <div class="col-md-1" *ngIf="isLogged">
+                <button class="btn btn-warning" routerLink="/edit-education/{{edu.id}}" style="border-radius: 50%;">
+                    <i class="bi bi-pencil"></i>
+                </button>
+            </div>
+            <div class="col-md-1" *ngIf="isLogged">
+                <button class="btn btn-danger" (click)="delete(edu.id)" style="border-radius: 50%;">
+                    <i class="bi bi-trash"></i>
+                </button>
             </div>
         </div>
     </div>
