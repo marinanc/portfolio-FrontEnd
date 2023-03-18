@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { EducationService } from 'src/app/service/education.service';
+import { TokenService } from 'src/app/service/token.service';
 
 @Component({
   selector: 'app-education',
@@ -7,9 +9,33 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EducationComponent implements OnInit {
 
-  constructor() { }
+  education: Education[] = []
+
+  constructor(private educationService: EducationService, private tokenService: TokenService ) { }
+
+  isLogged = false;
 
   ngOnInit(): void {
+    this.loadEducation();
+    if(this.tokenService.getToken()) {
+      this.isLogged = true;
+    } else {
+      this.isLogged = false;
+    }
+  }
+
+  loadEducation(): void {
+    this.educationService.list().subscribe(data => { this.education = data });
+  }
+
+  delete(id?: number) {
+    if(id != undefined) {
+      this.educationService.delete(id).subscribe(data => { 
+        this.loadEducation 
+      } , err => { 
+        alert("No se pudo eliminar la educacion") 
+      })
+    }
   }
 
 }
