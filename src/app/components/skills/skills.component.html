@@ -5,17 +5,23 @@
     </div>
 
     <div id="skills-container">
+        <div class="col-lg-2">
+            <button type="button" class="btn btn-dark" routerLink="/new-skill" *ngIf="isLogged">
+                Agregar habilidad
+            </button>
+        </div>
+
         <div class="row">
-            <div class="col-md-4">
+            <div class="col-md-4" *ngFor="let s of skill">
                 <circle-progress
-                    [percent]="85"
+                    [percent]="(s.percentage)"
                     [radius]="100"
                     [outerStrokeWidth]="10"
                     [innerStrokeWidth]="8"
                     [innerStrokeWidth]="3"
                     [outerStrokeColor]="'#2596be'"
                     [innerStrokeColor]="'#82498c'"
-                    [title]="'JAVA'"
+                    [title]="(s.name)"
                     [showUnits]="false"
                     [titleColor]="'#ffffff'"
                     [unitsColor]="'#ffffff'"
@@ -24,6 +30,17 @@
                     [animationDuration]="500"
                     >
                 </circle-progress>
+
+                <div class="col-md-1" *ngIf="isLogged">
+                    <button class="btn btn-warning" routerLink="/edit-skill/{{s.id}}" style="border-radius: 50%;">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+                <div class="col-md-1" *ngIf="isLogged">
+                    <button class="btn btn-danger" (click)="delete(s.id)" style="border-radius: 50%;">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
             </div>
         </div>
     </div>
