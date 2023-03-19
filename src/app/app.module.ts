@@ -20,6 +20,7 @@ import { NewExperienceComponent } from './components/experience/new-experience.c
 import { EditExperienceComponent } from './components/experience/edit-experience.component';
 import { NewEducationComponent } from './components/education/new-education.component';
 import { EditEducationComponent } from './components/education/edit-education.component';
+import { NgCircleProgressModule } from 'ng-circle-progress';
 
 @NgModule({
   declarations: [
@@ -43,7 +44,8 @@ import { EditEducationComponent } from './components/education/edit-education.co
     AppRoutingModule,
     NgbModule,
     FormsModule,
-    HttpClientModule
+    HttpClientModule,
+    NgCircleProgressModule.forRoot({})
   ],
   providers: [
     interceptorProvider
