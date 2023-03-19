@@ -13,7 +13,7 @@
 
         <div class="row">
             <div class="col-md-4" *ngFor="let s of skill">
-                <circle-progress
+                <circle-progress class="d-flex justify-content-center"
                     [percent]="(s.percentage)"
                     [radius]="100"
                     [outerStrokeWidth]="10"
@@ -31,15 +31,17 @@
                     >
                 </circle-progress>
 
-                <div class="col-md-1" *ngIf="isLogged">
-                    <button class="btn btn-warning" routerLink="/edit-skill/{{s.id}}" style="border-radius: 50%;">
-                        <i class="bi bi-pencil"></i>
-                    </button>
-                </div>
-                <div class="col-md-1" *ngIf="isLogged">
-                    <button class="btn btn-danger" (click)="delete(s.id)" style="border-radius: 50%;">
-                        <i class="bi bi-trash"></i>
-                    </button>
+                <div class="row">
+                    <div class="col-md-6 d-flex justify-content-center" *ngIf="isLogged">
+                        <button class="btn btn-warning" routerLink="/edit-skill/{{s.id}}" style="border-radius: 50%;">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-6 d-flex justify-content-center" *ngIf="isLogged">
+                        <button class="btn btn-danger" (click)="delete(s.id)" style="border-radius: 50%;">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
                 </div>
             </div>
         </div>
