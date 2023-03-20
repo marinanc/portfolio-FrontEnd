@@ -23,6 +23,8 @@ import { EditEducationComponent } from './components/education/edit-education.co
 import { NgCircleProgressModule } from 'ng-circle-progress';
 import { NewSkillComponent } from './components/skills/new-skill.component';
 import { EditSkillComponent } from './components/skills/edit-skill.component';
+import { EditProjectComponent } from './components/projects/edit-project.component';
+import { NewProjectComponent } from './components/projects/new-project.component';
 
 @NgModule({
   declarations: [
@@ -41,7 +43,9 @@ import { EditSkillComponent } from './components/skills/edit-skill.component';
     NewEducationComponent,
     EditEducationComponent,
     NewSkillComponent,
-    EditSkillComponent
+    EditSkillComponent,
+    EditProjectComponent,
+    NewProjectComponent
   ],
   imports: [
     BrowserModule,
