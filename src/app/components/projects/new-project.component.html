@@ -1,1 +1,22 @@
-<p>new-project works!</p>
+<div class="container">
+    <div class="row">
+        <div>
+            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                <div class="form-group">
+                    <label for="name">Nombre del proyecto</label>
+                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Descripción</label>
+                    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required>
+                </div>
+                <div class="form-group">
+                    <label for="description">Link a evidencia</label>
+                    <input type="text" class="form-control" id="link" name="link" [(ngModel)]="link" required>
+                </div>
+                <button class="btn btn-primary">Agregar proyecto</button>
+            </form>
+        </div>
+    </div>
+</div>
+

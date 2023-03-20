@@ -17,18 +17,18 @@ export class ProjectService {
   }
 
   public detail(id: number): Observable<Project> {
-    return this.httpCliente.get<Project>(this.httpCliente + `detail/${id}`);
+    return this.httpCliente.get<Project>(this.projectURL + `detail/${id}`);
   }
 
   public save(project: Project): Observable<any> {
-    return this.httpCliente.post<any>(this.httpCliente + 'create', project);
+    return this.httpCliente.post<any>(this.projectURL + 'create', project);
   }
 
   public update(id: number, project: Project): Observable<any> {
-    return this.httpCliente.put<any>(this.httpCliente + `update/${id}`, project);
+    return this.httpCliente.put<any>(this.projectURL + `update/${id}`, project);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpCliente.delete<any>(this.httpCliente + `delete/${id}`);
+    return this.httpCliente.delete<any>(this.projectURL + `delete/${id}`);
   }
 }
