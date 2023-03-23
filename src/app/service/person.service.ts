@@ -8,7 +8,8 @@ import { person } from '../model/person.model';
 })
 export class PersonService {
 
-  URL = 'http://localhost:8080/persons/';
+  //URL = 'http://localhost:8080/persons/';}
+  URL = 'https://backend-portfolio-3yz3.onrender.com/persons/';
 
   constructor(private http: HttpClient) { }
 
