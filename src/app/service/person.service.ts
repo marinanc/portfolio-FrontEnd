@@ -9,11 +9,31 @@ import { person } from '../model/person.model';
 })
 export class PersonService {
 
-  URL = environment.URL + 'persons/';
+  URL = environment.URL + 'person/';
 
-  constructor(private http: HttpClient) { }
+  constructor(private httpClient: HttpClient) { }
 
-  public getPerson(): Observable<person>{
-    return this.http.get<person>(this.URL + 'get/profile');
+  public list(): Observable<person[]> {
+    return this.httpClient.get<person[]>(this.URL + 'list');
   }
+
+  public detail(id: number): Observable<person> {
+    return this.httpClient.get<person>(this.URL + `detail/${id}`);
+  }
+
+  /*
+  public save(person: person): Observable<any> {
+    return this.httpClient.post<any>(this.URL + 'create', person);
+  }
+  */
+
+  public update(id: number, person: person): Observable<any> {
+    return this.httpClient.put<any>(this.URL + `update/${id}`, person);
+  }
+
+  /*
+  public delete(id: number): Observable<any> {
+    return this.httpClient.delete<any>(this.URL + `delete/${id}`);
+  }
+  */
 }

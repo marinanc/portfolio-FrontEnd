@@ -4,9 +4,7 @@
 
 export const environment = {
   production: false,
-
-  URL: 'http://localhost:8080/',
-  //URL: 'https://backend-portfolio-3yz3.onrender.com/'
+  URL: 'http://localhost:8080/'
 };
 
 /*

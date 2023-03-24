@@ -9,7 +9,7 @@ import { Education } from '../model/education';
 })
 export class EducationService {
 
-  URL = environment.URL + '/education/';
+  URL = environment.URL + 'education/';
 
   constructor(private httpCliente: HttpClient) { }
 
