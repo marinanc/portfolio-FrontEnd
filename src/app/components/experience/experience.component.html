@@ -8,18 +8,7 @@
                 Agregar experiencia laboral
             </button>
         </div>
-        <!--
-        <table class="table">
-            <tbody>
-                <tr *ngFor="let exp of experience">
-                    <td>{{exp.name}}</td>
-                    <td>{{exp.description}}</td>
-                    <td>edit</td>
-                    <td>delete</td>
-                </tr>
-            </tbody>
-        </table>
-        -->
+        
        
         <div class="row py-5" id="experience" *ngFor="let exp of experience">
             <div class="col-md-2" id="img-experience">
@@ -27,7 +16,11 @@
             </div>
             <div class="col-md-8" id="description-experience">
                 <h2>{{exp.name}}</h2>
-                <h5>Fecha desde - Fecha hasta </h5>
+                
+                <div *ngIf="exp.dateTo; then thenBlock else elseBlock"></div>
+                <ng-template #thenBlock><h5>Periodo: {{exp.dateFrom}} - {{exp.dateTo}}</h5></ng-template>
+                <ng-template #elseBlock><h5>Perdiodo: {{exp.dateFrom}} - Actualidad</h5></ng-template>
+                                
                 <p>
                     {{exp.description}}
                 </p>

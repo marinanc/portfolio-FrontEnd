@@ -6,6 +6,16 @@
                     <label for="name">Nombre de la empresa</label>
                     <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
                 </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="dateFrom">Desde</label>
+                        <input type="month" min="1920-01" class="form-control" id="dateFrom" name="dateFrom" [(ngModel)]="dateFrom" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dateTo">Hasta</label>
+                        <input type="month" min="1920-01" class="form-control" id="dateTo" name="dateTo" [(ngModel)]="dateTo">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="description">Descripción</label>
                     <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required>

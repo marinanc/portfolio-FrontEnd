@@ -6,6 +6,16 @@
                     <label for="title">Nombre del titulo</label>
                     <input type="text" class="form-control" id="title" name="title" [(ngModel)]="education.title" required>
                 </div>
+                <div class="row">
+                    <div class="form-group col-md-6">
+                        <label for="dateFrom">Desde</label>
+                        <input type="month" min="1920-01" class="form-control" id="dateFrom" name="dateFrom" [(ngModel)]="education.dateFrom" required>
+                    </div>
+                    <div class="form-group col-md-6">
+                        <label for="dateTo">Hasta</label>
+                        <input type="month" min="1920-01" class="form-control" id="dateTo" name="dateTo" [(ngModel)]="education.dateTo">
+                    </div>
+                </div>
                 <div class="form-group">
                     <label for="description">Descripción</label>
                     <input type="text" class="form-control" id="description" name="description" [(ngModel)]="education.description" required>
