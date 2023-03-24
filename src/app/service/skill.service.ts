@@ -1,6 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
+import { environment } from 'src/environments/environment';
 import { Skill } from '../model/skill';
 
 @Injectable({
@@ -8,28 +9,27 @@ import { Skill } from '../model/skill';
 })
 export class SkillService {
 
-  //skillURL = 'http://localhost:8080/skill/'
-  skillURL = 'https://backend-portfolio-3yz3.onrender.com/skill/';
+  URL = environment.URL + 'skill/';
 
   constructor(private httpCliente: HttpClient) { }
 
   public list(): Observable<Skill[]> {
-    return this.httpCliente.get<Skill[]>(this.skillURL + 'list');
+    return this.httpCliente.get<Skill[]>(this.URL + 'list');
   }
 
   public detail(id: number): Observable<Skill> {
-    return this.httpCliente.get<Skill>(this.skillURL + `detail/${id}`);
+    return this.httpCliente.get<Skill>(this.URL + `detail/${id}`);
   }
 
   public save(skill: Skill): Observable<any> {
-    return this.httpCliente.post<any>(this.skillURL + 'create', skill);
+    return this.httpCliente.post<any>(this.URL + 'create', skill);
   }
 
   public update(id: number, skill: Skill): Observable<any> {
-    return this.httpCliente.put<any>(this.skillURL + `update/${id}`, skill);
+    return this.httpCliente.put<any>(this.URL + `update/${id}`, skill);
   }
 
   public delete(id: number): Observable<any> {
-    return this.httpCliente.delete<any>(this.skillURL + `delete/${id}`);
+    return this.httpCliente.delete<any>(this.URL + `delete/${id}`);
   }
 }
