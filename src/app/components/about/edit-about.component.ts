@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { person } from 'src/app/model/person.model';
+import { ImageService } from 'src/app/service/image.service';
 import { PersonService } from 'src/app/service/person.service';
 
 @Component({
@@ -12,7 +13,10 @@ export class EditAboutComponent implements OnInit {
 
   person: person = null;
 
-  constructor(private personService: PersonService, private activatedRoute: ActivatedRoute, private router: Router) { }
+  constructor(private personService: PersonService, 
+    private activatedRoute: ActivatedRoute, 
+    private router: Router, 
+    public imageService: ImageService) { }
 
   ngOnInit(): void {
     const id = this.activatedRoute.snapshot.params['id'];
@@ -26,6 +30,7 @@ export class EditAboutComponent implements OnInit {
 
   onUpdate(): void{
     const id = this.activatedRoute.snapshot.params['id'];
+    this.person.img = this.imageService.url;
     this.personService.update(id, this.person).subscribe( data => {
       this.router.navigate(['']);
     }, err => {
@@ -35,7 +40,9 @@ export class EditAboutComponent implements OnInit {
   }
 
   uploadImage($event: any) {
-
+    const id = this.activatedRoute.snapshot.params['id'];
+    const name = "profile_" + id;
+    this.imageService.uploadImage($event, name)
   }
 
 }

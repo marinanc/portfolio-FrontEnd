@@ -18,6 +18,9 @@
                     <label for="img">Foto</label>
                     <input type="file" class="form-control" id="img" name="img" [(ngModel)]="person.img" (change)="uploadImage($event)" accept=".jpg, .jpeg, .png">
                 </div>
+                <div class="image">
+                    <img [src]="imageService.url" width="200px">
+                </div>
                 <button class="btn btn-primary">Actualizar perfil</button>
             </form>
         </div>
