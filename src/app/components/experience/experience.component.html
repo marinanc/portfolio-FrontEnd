@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
     <div class="row text-center">
         <h1>Experiencia laboral</h1>
         <button type="button" class="btn btn-dark" routerLink="/new-experience" *ngIf="isLogged">
@@ -7,7 +7,7 @@
     </div>
     <div id="experience-container">
         
-        <div class="row py-5" id="experience" *ngFor="let exp of experience">
+        <div class="row p-5" id="experience" *ngFor="let exp of experience">
             <div class="col-md-2 d-flex justify-content-center align-items-center" id="img-experience">
                 <div *ngIf="exp.img; then expImg else defaultImg"></div>
                 <ng-template #expImg>

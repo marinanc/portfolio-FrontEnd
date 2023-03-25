@@ -1,4 +1,4 @@
-<div class="container">
+<div class="container content">
     <div class="row text-center">
         <h1>Proyectos</h1>
         <button type="button" class="btn btn-dark" routerLink="/new-project" *ngIf="isLogged">
@@ -7,7 +7,7 @@
     </div>
     <div id="projects-container">
 
-        <div class="row py-5" id="project" *ngFor="let proj of project">
+        <div class="row p-5" id="project" *ngFor="let proj of project">
             <h2>{{proj.name}}</h2>
             <div class="d-flex justify-content-center align-items-center pb-3">
                 <div class="col-md-1" *ngIf="isLogged">
