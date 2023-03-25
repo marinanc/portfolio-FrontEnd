@@ -1,18 +1,15 @@
-<div class="container">
+<div class="container py-5">
     
-    <div class="row text-center">
+    <div class="row text-center pb-5">
         <h1>Habilidades</h1>
+        <button type="button" class="btn btn-dark" routerLink="/new-skill" *ngIf="isLogged">
+            Agregar habilidad
+        </button>
     </div>
 
     <div id="skills-container">
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-dark" routerLink="/new-skill" *ngIf="isLogged">
-                Agregar habilidad
-            </button>
-        </div>
-
         <div class="row">
-            <div class="col-md-4" *ngFor="let s of skill">
+            <div class="col-md-3" *ngFor="let s of skill">
                 <circle-progress class="d-flex justify-content-center"
                     [percent]="(s.percentage)"
                     [radius]="100"
@@ -23,8 +20,8 @@
                     [innerStrokeColor]="'#82498c'"
                     [title]="(s.name)"
                     [showUnits]="false"
-                    [titleColor]="'#ffffff'"
-                    [unitsColor]="'#ffffff'"
+                    [titleColor]="'#000000'"
+                    [unitsColor]="'#000000'"
                     [showSubtitle]="false"
                     [animation]="true"
                     [animationDuration]="500"

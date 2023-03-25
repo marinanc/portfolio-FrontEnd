@@ -39,4 +39,8 @@ export class NewEducationComponent implements OnInit {
     this.imageService.uploadImage($event, name);
     console.log(this.imageService.url);
   }
+
+  goBack() {
+    this.router.navigate(['']);
+  }
 }

@@ -29,4 +29,8 @@ export class NewSkillComponent implements OnInit {
     })
   }
 
+  goBack() {
+    this.router.navigate(['']);
+  }
+
 }

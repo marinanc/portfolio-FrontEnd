@@ -1,21 +1,27 @@
-<div class="container">
-    <div class="row">
-        <div>
-            <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
-                <div class="form-group">
-                    <label for="name">Nombre del proyecto</label>
-                    <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Descripción</label>
-                    <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required>
-                </div>
-                <div class="form-group">
-                    <label for="description">Link a evidencia</label>
-                    <input type="text" class="form-control" id="link" name="link" [(ngModel)]="link" required>
-                </div>
-                <button class="btn btn-primary">Agregar proyecto</button>
-            </form>
+<div class="container py-5 h-100">
+    <div class="row d-flex justify-content-center align-items-center h-100">
+        <div class="card bg-dark text-white" style="border-radius: 1rem;">
+            <div class="card-body p-3 text-center">
+                <h1>Añadir proyecto</h1>
+                <form (ngSubmit)="onCreate()" novalidate #f="ngForm">
+                    <div class="form-group py-3">
+                        <label for="name">Nombre del proyecto</label>
+                        <input type="text" class="form-control" id="name" name="name" [(ngModel)]="name" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <label for="description">Descripción</label>
+                        <input type="text" class="form-control" id="description" name="description" [(ngModel)]="description" required>
+                    </div>
+                    <div class="form-group py-3">
+                        <label for="description">Link a evidencia</label>
+                        <input type="text" class="form-control" id="link" name="link" [(ngModel)]="link" required>
+                    </div>
+                    <div class="row d-flex justify-content-center align-items-center">
+                        <button class="btn btn-primary col-md-3">Agregar proyecto</button>
+                        <button class="btn btn-danger col-md-3" onclick="goBack()">Cancelar</button>
+                    </div>
+                </form>
+            </div>
         </div>
     </div>
 </div>

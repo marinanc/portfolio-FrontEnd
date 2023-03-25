@@ -1,36 +1,37 @@
 <div class="container">
     <div class="row text-center">
         <h1>Proyectos</h1>
+        <button type="button" class="btn btn-dark" routerLink="/new-project" *ngIf="isLogged">
+            Agregar proyecto
+        </button>
     </div>
     <div id="projects-container">
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-dark" routerLink="/new-project" *ngIf="isLogged">
-                Agregar proyecto
-            </button>
-        </div>
 
         <div class="row py-5" id="project" *ngFor="let proj of project">
             <h2>{{proj.name}}</h2>
-            <h5>Fecha de realización</h5>
+            <div class="d-flex justify-content-center align-items-center pb-3">
+                <div class="col-md-1" *ngIf="isLogged">
+                    <button class="btn btn-warning" routerLink="/edit-project/{{proj.id}}" style="border-radius: 50%;">
+                        <i class="bi bi-pencil"></i>
+                    </button>
+                </div>
+                <div class="col-md-1" *ngIf="isLogged">
+                    <button class="btn btn-danger" (click)="delete(proj.id)" style="border-radius: 50%;">
+                        <i class="bi bi-trash"></i>
+                    </button>
+                </div>
+            </div>
+
             <p>
                 {{proj.description}}
             </p>
             <div class="d-grid gap-2 col-6 mx-auto" id="project-link">
                 <a href="{{proj.link}}" target="_blank">
-                    <button type="button" class="btn btn-outline-success">Ir al proyecto</button>
+                    <button type="button" class="btn btn-primary">Ir al proyecto</button>
                 </a>
             </div>
 
-            <div class="col-md-1" *ngIf="isLogged">
-                <button class="btn btn-warning" routerLink="/edit-project/{{proj.id}}" style="border-radius: 50%;">
-                    <i class="bi bi-pencil"></i>
-                </button>
-            </div>
-            <div class="col-md-1" *ngIf="isLogged">
-                <button class="btn btn-danger" (click)="delete(proj.id)" style="border-radius: 50%;">
-                    <i class="bi bi-trash"></i>
-                </button>
-            </div>
+            
         </div>
     </div>
 </div>

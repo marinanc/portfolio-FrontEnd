@@ -15,10 +15,10 @@
                 </a>
             </li>
             <li>
-                <a class="nav-link" href="/login"><button class="btn btn-sm btn-outline-success" type="button" *ngIf="!isLogged">Login</button></a>
+                <a class="nav-link" href="/login"><button class="btn btn-sm btn-dark" type="button" *ngIf="!isLogged">Login</button></a>
             </li>
             <li>
-                <a class="nav-link"><button class="btn btn-sm btn-outline-success" (click)="onLogout()" type="button" *ngIf="isLogged">Logout</button></a>
+                <a class="nav-link"><button class="btn btn-sm btn-danger" (click)="onLogout()" type="button" *ngIf="isLogged">Logout</button></a>
             </li>
         </ul>
     </div>

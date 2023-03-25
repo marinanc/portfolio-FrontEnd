@@ -1,18 +1,14 @@
 <div class="container">
     <div class="row text-center">
         <h1>Educación</h1>
+        <button type="button" class="btn btn-dark" routerLink="/new-education" *ngIf="isLogged">
+            Agregar educación
+        </button>
     </div>
 
     <div id="education-container">
-
-        <div class="col-lg-2">
-            <button type="button" class="btn btn-dark" routerLink="/new-education" *ngIf="isLogged">
-                Agregar educación
-            </button>
-        </div>
-
         <div class="row py-5" id="education" *ngFor="let edu of education">
-            <div class="col-md-2">
+            <div class="col-md-2 d-flex justify-content-center align-items-center">
                 <div *ngIf="edu.img; then expImg else defaultImg"></div>
                 <ng-template #expImg>
                     <img src="{{edu.img}}" alt="experience-photo" class="img-fluid">
@@ -21,9 +17,20 @@
                     <img src="../../../assets/default-img.jpg" alt="experience-photo" class="img-fluid">
                 </ng-template>
             </div>
-            <div class="col-md-8">
+            <div class="col-md-10">
                 <h2>{{edu.title}}</h2>
-                
+                <div class="d-flex justify-content-center align-items-center pb-3">
+                    <div class="col-md-1" *ngIf="isLogged">
+                        <button class="btn btn-warning" routerLink="/edit-education/{{edu.id}}" style="border-radius: 50%;">
+                            <i class="bi bi-pencil"></i>
+                        </button>
+                    </div>
+                    <div class="col-md-1" *ngIf="isLogged">
+                        <button class="btn btn-danger" (click)="delete(edu.id)" style="border-radius: 50%;">
+                            <i class="bi bi-trash"></i>
+                        </button>
+                    </div>
+                </div>
                 <div *ngIf="edu.dateTo; then thenBlock else elseBlock"></div>
                 <ng-template #thenBlock><h5>Periodo: {{edu.dateFrom}} - {{edu.dateTo}}</h5></ng-template>
                 <ng-template #elseBlock><h5>Perdiodo: {{edu.dateFrom}} - Actualidad</h5></ng-template>
@@ -32,16 +39,7 @@
                     {{edu.description}}
                 </p>
             </div>
-            <div class="col-md-1" *ngIf="isLogged">
-                <button class="btn btn-warning" routerLink="/edit-education/{{edu.id}}" style="border-radius: 50%;">
-                    <i class="bi bi-pencil"></i>
-                </button>
-            </div>
-            <div class="col-md-1" *ngIf="isLogged">
-                <button class="btn btn-danger" (click)="delete(edu.id)" style="border-radius: 50%;">
-                    <i class="bi bi-trash"></i>
-                </button>
-            </div>
+           
         </div>
     </div>
 </div>

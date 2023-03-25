@@ -45,4 +45,8 @@ export class EditExperienceComponent implements OnInit {
     console.log(this.imageService.url);
   }
 
+  goBack() {
+    this.router.navigate(['']);
+  }
+
 }

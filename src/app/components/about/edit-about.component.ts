@@ -45,4 +45,8 @@ export class EditAboutComponent implements OnInit {
     this.imageService.uploadImage($event, name)
   }
 
+  goBack() {
+    this.router.navigate(['']);
+  }
+
 }

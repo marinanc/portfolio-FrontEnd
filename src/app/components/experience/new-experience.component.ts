@@ -40,4 +40,8 @@ export class NewExperienceComponent implements OnInit {
     console.log(this.imageService.url);
   }
 
+  goBack() {
+    this.router.navigate(['']);
+  }
+
 }

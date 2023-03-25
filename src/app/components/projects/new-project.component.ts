@@ -29,4 +29,8 @@ export class NewProjectComponent implements OnInit {
       this.router.navigate(['']);
     })
   }
+
+  goBack() {
+    this.router.navigate(['']);
+  }
 }
