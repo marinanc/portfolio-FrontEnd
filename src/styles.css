@@ -1,10 +1,14 @@
 /* You can add global styles to this file, and also import other style files */
-@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+/*@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');*/
+
+@import url('https://fonts.cdnfonts.com/css/norwester');
+
 
 body {
     color: black;
     text-align: justify;
-    font-family:'Roboto', sans-serif;
+    /*font-family:'Roboto', sans-serif;*/
+    font-family: 'Norwester', sans-serif;
     font-size: 20px;
 }
 h1, h2{
@@ -50,7 +54,8 @@ h1, h2{
     }
   }
 
-  /* Divider line (rounded border) */
+/* Divider line */
+/* Rounded border */
 hr.rounded {
     border-top: 8px solid #bbb;
     border-radius: 5px;
