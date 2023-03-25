@@ -12,7 +12,13 @@
        
         <div class="row py-5" id="experience" *ngFor="let exp of experience">
             <div class="col-md-2" id="img-experience">
-                <img src="../../../assets/default-img.jpg" alt="experience-photo" class="img-fluid">
+                <div *ngIf="exp.img; then expImg else defaultImg"></div>
+                <ng-template #expImg>
+                    <img src="{{exp.img}}" alt="experience-photo" class="img-fluid">
+                </ng-template>
+                <ng-template #defaultImg>
+                    <img src="../../../assets/default-img.jpg" alt="experience-photo" class="img-fluid">
+                </ng-template>
             </div>
             <div class="col-md-8" id="description-experience">
                 <h2>{{exp.name}}</h2>

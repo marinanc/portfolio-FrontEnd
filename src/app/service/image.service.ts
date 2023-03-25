@@ -7,6 +7,7 @@ import { async } from '@firebase/util';
 })
 export class ImageService {
   url: string ="";
+  urlImg: string = "";
 
   constructor(private storage: Storage) { }
 
@@ -14,10 +15,27 @@ export class ImageService {
     const file = $event.target.files[0];
     const imgRef = ref(this.storage, `image/` + name)
     uploadBytes(imgRef, file)
-    .then(response => { this.getImages() })
-    .catch(error => console.log(error) )
+    .then(response => { 
+      this.getImages(name);
+      //this.getURLImage(name);
+    })
+    .catch(error => console.log(error) );
   }
 
+  getImages(name: string){
+    const imagesRef = ref(this.storage, 'image');
+    list(imagesRef)
+    .then(async response => {
+      for(let item of response.items){
+        if(item.name === name){
+          this.url = await getDownloadURL(item)
+        }
+      }
+    })
+    .catch(error => console.log(error))
+  }
+
+  /*
   getImages(){
     const imagesRef = ref(this.storage, 'image');
     list(imagesRef)
@@ -28,4 +46,21 @@ export class ImageService {
     })
     .catch(error => console.log(error) )
   }
+  */
+
+  //Buscar url de la imagen recien subida
+  /*
+  getURLImage(nameImg: string){
+    const imagesRef = ref(this.storage, 'image');
+    list(imagesRef)
+    .then(async response => {
+      for(let item of response.items){
+        if(item.name === nameImg){
+          this.urlImg = await getDownloadURL(item);
+        }
+      }
+    })
+    .catch(error => console.log(error));
+  }
+  */
 }
