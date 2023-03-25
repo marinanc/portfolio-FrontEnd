@@ -2,9 +2,12 @@
     
     <div class="row text-center pb-5">
         <h1>Habilidades</h1>
+        <!--
         <button type="button" class="btn btn-dark" routerLink="/new-skill" *ngIf="isLogged">
-            Agregar habilidad
+            Añadir habilidad
         </button>
+        -->
+        <a routerLink="/new-skill" *ngIf="isLogged">Añadir habilidad</a>
     </div>
 
     <div id="skills-container p-5">

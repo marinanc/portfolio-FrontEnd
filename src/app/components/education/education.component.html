@@ -1,9 +1,12 @@
 <div class="container content">
     <div class="row text-center">
         <h1>Educación</h1>
+        <!--
         <button type="button" class="btn btn-dark" routerLink="/new-education" *ngIf="isLogged">
-            Agregar educación
+            Añadir educación
         </button>
+        -->
+        <a routerLink="/new-education" *ngIf="isLogged">Añadir educación</a>
     </div>
 
     <div id="education-container">

@@ -1,9 +1,12 @@
 <div class="container content">
     <div class="row text-center">
         <h1>Proyectos</h1>
+        <!--
         <button type="button" class="btn btn-dark" routerLink="/new-project" *ngIf="isLogged">
-            Agregar proyecto
+            Añadir proyecto
         </button>
+        -->
+        <a routerLink="/new-project" *ngIf="isLogged">Añadir proyecto</a>
     </div>
     <div id="projects-container">
 
