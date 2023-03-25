@@ -13,7 +13,13 @@
 
         <div class="row py-5" id="education" *ngFor="let edu of education">
             <div class="col-md-2">
-                <img src="../../../assets/default-img.jpg" alt="logo educational establishment" class="img-fluid">
+                <div *ngIf="edu.img; then expImg else defaultImg"></div>
+                <ng-template #expImg>
+                    <img src="{{edu.img}}" alt="experience-photo" class="img-fluid">
+                </ng-template>
+                <ng-template #defaultImg>
+                    <img src="../../../assets/default-img.jpg" alt="experience-photo" class="img-fluid">
+                </ng-template>
             </div>
             <div class="col-md-8">
                 <h2>{{edu.title}}</h2>
